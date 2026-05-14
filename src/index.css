@@ -21,7 +21,7 @@
     background: radial-gradient(120% 80% at 80% 10%, #2a1810 0%, transparent 45%),
       radial-gradient(80% 60% at 10% 90%, #1a100c 0%, transparent 50%),
       linear-gradient(165deg, #0a0a0a 0%, #14100d 40%, #1a0f0a 100%);
-    background-attachment: fixed;
+    background-attachment: scroll;
   }
 
   ::selection {

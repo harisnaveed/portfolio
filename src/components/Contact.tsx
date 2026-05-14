@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState, type FormEvent } from 'react'
 import { site } from '../content'
+import emailjs from "@emailjs/browser";
 
 function SocialIcon({ icon }: { icon: string }) {
   const common = 'h-5 w-5'
@@ -35,12 +36,41 @@ function SocialIcon({ icon }: { icon: string }) {
 }
 
 export function Contact() {
-  const [sent, setSent] = useState(false)
+  const [name, setName] = useState('')
+  const [phone, setPhone] = useState('')  
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [messageNotification, setmessageNotification] = useState("")
+  const [sending, setSending] = useState(false)
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setSent(true)
-    window.setTimeout(() => setSent(false), 4000)
+    setSending(true)
+    try {
+      await emailjs.send(
+        'service_eo5a73f',
+        'template_8iwgtmj',
+        { 
+          name: name,
+          email: email,
+          phone: phone,
+          message: message, 
+        },
+        'dxzQrVy9PMPO4Td6D'
+      )
+      setmessageNotification(`Thank you ${name} for your message. I will get back to you soon.`)
+      setName('')
+      setEmail('')
+      setPhone('')
+      setMessage('')
+      window.setTimeout(() => setmessageNotification(""), 4000)
+      } catch (error) {
+      console.error('Error sending email:', error)
+      setmessageNotification("Message not sent")
+      window.setTimeout(() => setmessageNotification(""), 4000)
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -77,6 +107,8 @@ export function Contact() {
                   required
                   className="mt-1 w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white outline-none ring-accent/0 transition focus:border-accent focus:ring-2 focus:ring-accent/40"
                   placeholder="Your name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div>
@@ -90,6 +122,23 @@ export function Contact() {
                   required
                   className="mt-1 w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/40"
                   placeholder="you@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div>
+                <label htmlFor="phone" className="text-sm text-zinc-400">
+                  Phone
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  required
+                  className="mt-1 w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/40"
+                  placeholder="Your phone number"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
               <div>
@@ -101,19 +150,21 @@ export function Contact() {
                   name="message"
                   required
                   rows={4}
-                  className="mt-1 w-full resize-none rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/40"
+                  className="mt-1 w-full resize-none rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/40"  
                   placeholder="Tell me about your project…"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                 />
               </div>
               <button
                 type="submit"
                 className="w-full rounded-full bg-accent py-3 text-sm font-semibold text-black transition hover:bg-amber-400 md:w-auto md:px-10"
               >
-                Send message
+                {sending ? 'Sending...' : 'Send message'}
               </button>
-              {sent && (
-                <p className="text-sm text-accent" role="status">
-                  Thanks! This demo doesn&apos;t send email — wire your API or form service here.
+              {messageNotification && (
+                <p className="text-sm text-accent mt-2" role="status">
+                  {messageNotification}
                 </p>
               )}
             </form>

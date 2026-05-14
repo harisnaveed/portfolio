@@ -24,17 +24,22 @@ export function Testimonials() {
   const scrollerRef = useRef<HTMLDivElement>(null)
   const [active, setActive] = useState(0)
   const dragScroll = useRef<{ startX: number; startScroll: number } | null>(null)
+  const syncRafRef = useRef<number | null>(null)
 
   const syncActiveFromScroll = useCallback(() => {
-    const root = scrollerRef.current
-    if (!root) return
-    const first = root.querySelector<HTMLElement>('[data-testimonial-card]')
-    if (!first) return
-    const gap = 24
-    const step = first.offsetWidth + gap
-    if (step <= 0) return
-    const idx = Math.round(root.scrollLeft / step)
-    setActive(Math.min(totalTestimonials - 1, Math.max(0, idx)))
+    if (syncRafRef.current != null) return
+    syncRafRef.current = requestAnimationFrame(() => {
+      syncRafRef.current = null
+      const root = scrollerRef.current
+      if (!root) return
+      const first = root.querySelector<HTMLElement>('[data-testimonial-card]')
+      if (!first) return
+      const gap = 24
+      const step = first.offsetWidth + gap
+      if (step <= 0) return
+      const idx = Math.round(root.scrollLeft / step)
+      setActive(Math.min(totalTestimonials - 1, Math.max(0, idx)))
+    })
   }, [])
 
   useEffect(() => {
@@ -57,7 +62,7 @@ export function Testimonials() {
     const gap = 24
     const step = first ? first.offsetWidth + gap : 400
     const m = ((idx % totalTestimonials) + totalTestimonials) % totalTestimonials
-    root.scrollTo({ left: m * step, behavior: 'smooth' })
+    root.scrollTo({ left: m * step, behavior: 'auto' })
   }, [])
 
   const goPrev = () => {
@@ -216,7 +221,7 @@ export function Testimonials() {
                 role="tab"
                 aria-selected={i === active}
                 aria-label={`Go to testimonial ${i + 1}: ${t.company}`}
-                className={`rounded-full transition-all duration-300 ${
+                className={`rounded-full transition-[width,background-color] duration-150 ${
                   i === active ? 'h-2.5 w-8 bg-accent' : 'h-2.5 w-2.5 bg-white/25 hover:bg-white/45'
                 }`}
                 onClick={() => scrollToIndex(i)}

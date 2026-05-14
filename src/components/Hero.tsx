@@ -1,11 +1,6 @@
 import { motion } from 'framer-motion'
 import { site } from '../content'
 
-const float = {
-  animate: { y: [0, -10, 0] },
-  transition: { duration: 3.5, repeat: Infinity, ease: 'easeInOut' as const },
-}
-
 export function Hero() {
   return (
     <section id="home" className="relative scroll-mt-28 px-4 pb-24 pt-32 md:px-8 md:pb-32 md:pt-36">
@@ -59,7 +54,7 @@ export function Hero() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <motion.div {...float} className="relative aspect-square w-full max-w-[22rem] md:max-w-[26rem]">
+          <div className="relative aspect-square w-full max-w-[22rem] md:max-w-[26rem]">
             <div
               className="hero-blob absolute inset-0 bg-gradient-to-br from-accent via-amber-500 to-orange-700 opacity-90"
               aria-hidden
@@ -74,7 +69,7 @@ export function Hero() {
                 decoding="async"
               />
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

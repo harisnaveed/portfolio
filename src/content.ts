@@ -12,7 +12,7 @@ export const site = {
     { value: '40+', label: 'Clients' },
   ],
   heroImage:
-    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=640&h=640&fit=crop&crop=face',
+    'https://avatars.githubusercontent.com/u/34480978?s=400&u=2a04053ccce9e31ecb3b3812b241e98b04c09d48&v=4',
   email: 'haris.workspace5@gmail.com',
   social: [
     { label: 'GitHub', href: 'https://github.com/harisnaveed', icon: 'github' },
@@ -125,5 +125,29 @@ export const site = {
       company: 'Kite',
       rating: '5.0',
     },
+    {
+      quote:
+        'Alex shipped our MVP in weeks and the polish exceeded our expectations. Communication was crystal clear.',
+      name: 'Sarah Chen 2',
+      role: 'Product Lead, Northwind',
+      company: 'Northwind',
+      rating: '5.0',
+    },
+    {
+      quote:
+        'Rare mix of design taste and engineering rigor. Our Lighthouse scores jumped dramatically.',
+      name: 'Marcus Webb 2',
+      role: 'CTO, Brightline',
+      company: 'Brightline',
+      rating: '5.0',
+    },
+    {
+      quote:
+        'Dependable partner on a complex migration. Documentation and handoff were spotless.',
+      name: 'Elena Ruiz 2',
+      role: 'Engineering Manager, Kite',
+      company: 'Kite',
+      rating: '5.0',
+    }
   ],
 }

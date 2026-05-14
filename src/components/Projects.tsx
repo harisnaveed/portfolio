@@ -132,9 +132,8 @@ export function Projects() {
                     z: -abs * 120,
                     scale: d === 0 ? 1 : 0.82,
                     opacity: abs > 1 ? 0.42 : d === 0 ? 1 : 0.78,
-                    filter: d === 0 ? 'blur(0px)' : 'blur(0.8px)',
                   }}
-                  transition={{ type: 'spring', stiffness: 280, damping: 32 }}
+                  transition={{ type: 'tween', duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
                   onClick={() => onCardClick(i)}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
@@ -149,8 +148,8 @@ export function Projects() {
                 >
                   <motion.div
                     className="origin-center overflow-hidden rounded-[1.35rem] border border-white/12 bg-[#141218] shadow-[0_30px_80px_rgba(0,0,0,0.55)]"
-                    whileHover={{ scale: 1.07 }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ type: 'tween', duration: 0.15, ease: 'easeOut' }}
                   >
                     <div className="relative aspect-[4/5] max-h-[320px] min-h-[260px] w-full overflow-hidden md:max-h-[340px]">
                       <img
@@ -226,7 +225,7 @@ export function Projects() {
               role="tab"
               aria-selected={i === active}
               aria-label={`Show project ${i + 1}: ${p.title}`}
-              className={`h-2.5 rounded-full transition-all duration-300 ${
+              className={`h-2.5 rounded-full transition-[width,background-color] duration-150 ${
                 i === active ? 'w-8 bg-accent' : 'w-2.5 bg-white/25 hover:bg-white/45'
               }`}
               onClick={() => setActive(i)}

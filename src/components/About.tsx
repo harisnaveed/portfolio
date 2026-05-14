@@ -12,11 +12,6 @@ function SmallIcon({ kind }: { kind: string }) {
   )
 }
 
-const cardFloat = {
-  animate: { y: [0, -8, 0] },
-  transition: { duration: 3.2, repeat: Infinity, ease: 'easeInOut' as const },
-}
-
 export function About() {
   return (
     <section id="about" className="scroll-mt-28 px-4 py-20 md:px-8 md:py-28">
@@ -33,24 +28,30 @@ export function About() {
           Full-stack developer &amp; UI/UX designer — shipping products end to end.
         </p>
 
-        <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:items-start">
+        <div className="mt-14 grid gap-10 sm:gap-12 lg:grid-cols-2 lg:items-start">
           <motion.div
-            className="relative mx-auto max-w-lg lg:mx-0"
+            className="relative mx-auto w-full max-w-lg lg:mx-0"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="grid grid-cols-2 gap-3">
-              {site.aboutImages.map((src, i) => (
-                <motion.div
+            <div className="grid grid-cols-2 gap-2 sm:gap-3">
+              {site.aboutImages.map((src) => (
+                <div
                   key={src}
-                  {...cardFloat}
-                  transition={{ ...cardFloat.transition, delay: i * 0.15 }}
-                  className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-lg"
+                  className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-lg sm:rounded-2xl"
                 >
-                  <img src={src} alt="" className="aspect-square h-full w-full object-cover" width={400} height={400} />
-                </motion.div>
+                  <img
+                    src={src}
+                    alt=""
+                    className="aspect-square h-full w-full object-cover"
+                    width={400}
+                    height={400}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               ))}
             </div>
             <div className="absolute -bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-accent px-6 py-2.5 text-sm font-bold text-black shadow-lg shadow-orange-500/40">

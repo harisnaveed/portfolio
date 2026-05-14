@@ -54,7 +54,7 @@ export function About() {
               ))}
             </div>
             <div className="absolute -bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-accent px-6 py-2.5 text-sm font-bold text-black shadow-lg shadow-orange-500/40">
-              3+ Years Experience
+              {site.stats[1].value} Years Experience
             </div>
           </motion.div>
 

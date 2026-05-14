@@ -1,21 +1,22 @@
 /** Edit this file to personalize name, links, and copy. */
 export const site = {
-  brand: { dev: 'Dev', portfolio: 'Portfolio' },
-  name: 'Alex Morgan',
+  brand: { dev: 'Haris', portfolio: 'Naveed' },
+  name: 'Haris Naveed',
+  resume: 'https://drive.google.com/file/d/1GyqUdypXaME7XYYhtO4aglUHTcSHH3jo/view?usp=sharing',
   role: 'Full-Stack Developer & UI/UX Enthusiast',
   tagline:
     'I craft fast, accessible web apps with thoughtful design. From idea to deployment, I focus on clarity, performance, and delightful details.',
   stats: [
     { value: '50+', label: 'Projects' },
-    { value: '3+', label: 'Years' },
+    { value: '5+', label: 'Years' },
     { value: '40+', label: 'Clients' },
   ],
   heroImage:
     'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=640&h=640&fit=crop&crop=face',
-  email: 'hello@example.com',
+  email: 'haris.workspace5@gmail.com',
   social: [
-    { label: 'GitHub', href: 'https://github.com', icon: 'github' },
-    { label: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' },
+    { label: 'GitHub', href: 'https://github.com/harisnaveed', icon: 'github' },
+    { label: 'LinkedIn', href: 'https://linkedin.com/in/haris-naveed-348ab4154', icon: 'linkedin' },
     { label: 'Twitter / X', href: 'https://x.com', icon: 'x' },
     { label: 'Dribbble', href: 'https://dribbble.com', icon: 'dribbble' },
   ],

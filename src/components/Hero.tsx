@@ -36,7 +36,7 @@ export function Hero() {
               <span aria-hidden>→</span>
             </a>
             <a
-              href={`mailto:${site.email}?subject=CV%20request`}
+              href={`${site.resume}`} target="_blank" rel="noreferrer"
               className="inline-flex items-center rounded-full border border-accent/60 bg-transparent px-7 py-3 text-sm font-semibold text-accent transition hover:border-accent hover:bg-accent/10"
             >
               Download CV

@@ -58,6 +58,18 @@ export function Contact() {
         },
         'dxzQrVy9PMPO4Td6D'
       )
+
+      await emailjs.send(
+        'service_eo5a73f',
+        'template_pp4egbo',
+        { 
+          name: name,
+          email: email,
+          phone: phone,
+          message: message, 
+        },
+        'dxzQrVy9PMPO4Td6D'
+      )
       setmessageNotification(`Thank you ${name} for your message. I will get back to you soon.`)
       setName('')
       setEmail('')

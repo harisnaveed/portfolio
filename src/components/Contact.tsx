@@ -58,7 +58,9 @@ export function Contact() {
         },
         'dxzQrVy9PMPO4Td6D'
       )
-
+      
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      
       await emailjs.send(
         'service_eo5a73f',
         'template_pp4egbo',

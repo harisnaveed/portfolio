@@ -171,8 +171,17 @@ export function Contact() {
                 />
               </div>
               <button
+                disabled={sending || !name || !email || !phone || !message}
                 type="submit"
-                className="w-full rounded-full bg-accent py-3 text-sm font-semibold text-black transition hover:bg-amber-400 md:w-auto md:px-10"
+                className={`
+                  w-full rounded-full py-3 text-sm font-semibold text-black transition
+                  md:w-auto md:px-10
+                  ${
+                    sending
+                      ? 'cursor-not-allowed bg-zinc-400 opacity-70'
+                      : 'bg-accent hover:bg-amber-400'
+                  }
+                `}
               >
                 {sending ? 'Sending...' : 'Send message'}
               </button>

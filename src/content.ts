@@ -14,6 +14,8 @@ export const site = {
   heroImage:
     'https://avatars.githubusercontent.com/u/34480978?s=400&u=2a04053ccce9e31ecb3b3812b241e98b04c09d48&v=4',
   email: 'haris.workspace5@gmail.com',
+  /** WhatsApp chat link — country code + number, no + or spaces (https://wa.me/...) */
+  whatsappHref: 'https://wa.me/+923121592007',
   social: [
     { label: 'GitHub', href: 'https://github.com/harisnaveed', icon: 'github' },
     { label: 'LinkedIn', href: 'https://linkedin.com/in/haris-naveed-348ab4154', icon: 'linkedin' },

@@ -8,11 +8,15 @@ import { Testimonials } from './components/Testimonials'
 import { Contact } from './components/Contact'
 import { Newsletter } from './components/Newsletter'
 import { Footer } from './components/Footer'
+import { WhatsAppFloat } from './components/WhatsAppFloat'
+import { SocialSidebar } from './components/SocialSidebar'
 
 function App() {
   return (
     <div className="min-h-screen overflow-x-hidden">
       <CustomCursor />
+      <WhatsAppFloat />
+      <SocialSidebar />
       <Header />
       <main>
         <Hero />

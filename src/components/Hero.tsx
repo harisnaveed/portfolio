@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { site } from '../content'
+import { TypeAnimation } from 'react-type-animation';
 
 export function Hero() {
   return (
@@ -12,9 +13,26 @@ export function Hero() {
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="text-lg text-zinc-400">
-            Hi, I&apos;m{' '}
-            <span className="font-semibold text-gradient-accent">{site.name}</span>{' '}
-            <span aria-hidden>👋</span>
+            <TypeAnimation
+              sequence={[
+                `Hi, I'm ${site.name} 👋`,
+                2000,
+                '',
+                500,
+                "I'm a Full Stack Developer 🚀",
+                2000,
+                '',
+                500,
+                "I build modern web experiences ✨",
+                2000,
+                '',
+                500,
+              ]}
+              wrapper="span"
+              speed={50}
+              repeat={Infinity}
+              className="font-semibold text-gradient-accent"
+            />
           </p>
           <h1 className="mt-3 text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl lg:text-[3.25rem]">
             {site.role}

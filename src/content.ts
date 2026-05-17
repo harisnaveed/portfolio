@@ -21,6 +21,7 @@ export const site = {
     { label: 'LinkedIn', href: 'https://linkedin.com/in/haris-naveed-348ab4154', icon: 'linkedin' },
     { label: 'Twitter / X', href: 'https://x.com', icon: 'x' },
     { label: 'Dribbble', href: 'https://dribbble.com', icon: 'dribbble' },
+    { label: 'Pinterest', href: 'https://www.pinterest.com/harisworkspace5/', icon: 'pinterest' },
   ],
   aboutImages: [
     'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=400&fit=crop',
@@ -151,5 +152,135 @@ export const site = {
       company: 'Kite',
       rating: '5.0',
     }
+  ],
+
+  /** Career & education timeline — newest first (top). Edit freely. */
+  experienceTimeline: [
+    {
+      kind: 'work' as const,
+      title: 'Senior Full-Stack Developer',
+      organization: 'Brightline Labs',
+      location: 'Remote',
+      start: 'Jan 2024',
+      end: 'Present' as const,
+      current: true,
+      responsibilities: [
+        'Lead feature delivery across React dashboards and Node APIs.',
+        'Mentor juniors and define frontend architecture patterns.',
+        'Partner with design on accessibility and performance budgets.',
+      ],
+    },
+    {
+      kind: 'work' as const,
+      title: 'Full-Stack Developer',
+      organization: 'Northwind Digital',
+      location: 'Karachi, PK',
+      start: 'Jun 2021',
+      end: 'Dec 2023',
+      responsibilities: [
+        'Built customer portals with React, TypeScript, and REST integrations.',
+        'Owned CI/CD pipelines and staging releases.',
+        'Reduced bundle size and improved Core Web Vitals on key flows.',
+      ],
+    },
+    {
+      kind: 'work' as const,
+      title: 'Junior Web Developer',
+      organization: 'Studio Orion',
+      location: 'Karachi, PK',
+      start: 'Mar 2019',
+      end: 'May 2021',
+      responsibilities: [
+        'Implemented marketing sites and CMS-driven landing pages.',
+        'Integrated analytics and email automation.',
+      ],
+    },
+    {
+      kind: 'education' as const,
+      title: 'B.Sc. Computer Science',
+      organization: 'University of Karachi',
+      location: 'Karachi, PK',
+      start: '2015',
+      end: '2019',
+      courses: [
+        'Data Structures & Algorithms',
+        'Database Systems',
+        'Software Engineering',
+        'Human–Computer Interaction',
+        'Web Technologies',
+      ],
+    },
+  ],
+
+  /** Detailed project stories for /case-studies — accent visuals & deeper copy. */
+  projectShowcase: [
+    {
+      title: 'Nimbus Dashboard',
+      tagline: 'Real-time analytics for product teams',
+      period: '2023 — ongoing',
+      role: 'Lead frontend · Full-stack support',
+      summary:
+        'A role-aware analytics workspace with streaming charts, saved views, and dark mode tuned for long monitoring sessions.',
+      outcomes: ['Sub-second chart refresh on filtered datasets', 'WCAG-aware theme tokens shared across widgets'],
+      responsibilities: [
+        'Designed composable chart primitives and lazy-loaded dashboard grids.',
+        'Implemented RBAC-aware API caching and optimistic UI for filters.',
+        'Collaborated with design on loading skeletons and keyboard flows.',
+      ],
+      tech: ['React', 'Node.js', 'WebSockets', 'Charts'],
+      img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&h=560&fit=crop',
+      href: 'https://vercel.com',
+    },
+    {
+      title: 'Lumen Commerce',
+      tagline: 'Headless storefront & experiments',
+      period: '2022 — 2023',
+      role: 'Frontend engineer',
+      summary:
+        'Checkout-focused storefront with Stripe, inventory sync, and built-in A/B hooks for merchandising experiments.',
+      outcomes: ['Checkout funnel instrumentation', 'Stable lighthouse scores on catalogue pages'],
+      responsibilities: [
+        'Owned Next.js app router layouts and ISR strategy for PLPs.',
+        'Built checkout extensions and Stripe webhook reconciliation tooling.',
+        'Partnered with marketing on experiment SDK integration.',
+      ],
+      tech: ['Next.js', 'Stripe', 'Tailwind CSS'],
+      img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&h=560&fit=crop',
+      href: 'https://stripe.com',
+    },
+    {
+      title: 'Pulse Health Portal',
+      tagline: 'Secure patient-facing portal',
+      period: '2021 — 2022',
+      role: 'Full-stack developer',
+      summary:
+        'Appointment scheduling, messaging, and document uploads with rigorous audit expectations.',
+      outcomes: ['Encrypted upload pipeline review', 'Reduced support tickets via clearer empty states'],
+      responsibilities: [
+        'Implemented HIPAA-minded logging boundaries and session handling.',
+        'Shipped messaging threads with optimistic sends and retries.',
+        'Wrote integration tests around consent flows.',
+      ],
+      tech: ['TypeScript', 'PostgreSQL', 'REST'],
+      img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&h=560&fit=crop',
+      href: 'https://www.typescriptlang.org',
+    },
+    {
+      title: 'Atlas Maps SDK',
+      tagline: 'Logistics mapping toolkit',
+      period: '2020 — 2021',
+      role: 'Frontend · Performance',
+      summary:
+        'Embeddable mapping components with clustering and route overlays for fleet dashboards.',
+      outcomes: ['Smooth pan/zoom on mid-tier Android browsers'],
+      responsibilities: [
+        'Wrapped Mapbox GL with React-friendly declarative layers.',
+        'Profiled frame budgets and trimmed unused style layers.',
+        'Authored SDK docs and Storybook demos for integrators.',
+      ],
+      tech: ['WebGL', 'Mapbox', 'Performance'],
+      img: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?w=900&h=560&fit=crop',
+      href: 'https://mapbox.com',
+    },
   ],
 }

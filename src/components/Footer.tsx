@@ -1,11 +1,14 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { site } from '../content'
 
 const quick = [
-  { href: '#about', label: 'About' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#skills', label: 'Skills' },
-  { href: '#contact', label: 'Contact' },
+  { to: '/#about', label: 'About' },
+  { to: '/#projects', label: 'Projects' },
+  { to: '/experience', label: 'Experience' },
+  { to: '/case-studies', label: 'Case Studies' },
+  { to: '/#skills', label: 'Skills' },
+  { to: '/#contact', label: 'Contact' },
 ]
 
 export function Footer() {
@@ -17,22 +20,22 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <a href="#home" className="text-xl font-semibold tracking-tight">
+          <Link to="/" className="text-xl font-semibold tracking-tight">
             <span className="text-white">{site.brand.dev}</span>
             <span className="text-gradient-accent">{site.brand.portfolio}</span>
-          </a>
+          </Link>
           <p className="mt-3 max-w-xs text-sm text-zinc-500">
-            Built with React, Tailwind CSS, Framer Motion, and a little custom CSS.
+          I craft fast, accessible web apps with thoughtful design. From idea to deployment, I focus on clarity, performance, and delightful details.
           </p>
         </motion.div>
 
         <nav aria-label="Footer">
           <ul className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-zinc-400">
             {quick.map((l) => (
-              <li key={l.href}>
-                <a href={l.href} className="transition hover:text-accent">
+              <li key={l.to}>
+                <Link to={l.to} className="transition hover:text-accent">
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

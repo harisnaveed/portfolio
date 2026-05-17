@@ -1,35 +1,17 @@
-import { CustomCursor } from './components/CustomCursor'
-import { Header } from './components/Header'
-import { Hero } from './components/Hero'
-import { About } from './components/About'
-import { Projects } from './components/Projects'
-import { Skills } from './components/Skills'
-import { Testimonials } from './components/Testimonials'
-import { Contact } from './components/Contact'
-import { Newsletter } from './components/Newsletter'
-import { Footer } from './components/Footer'
-import { WhatsAppFloat } from './components/WhatsAppFloat'
-import { SocialSidebar } from './components/SocialSidebar'
+import { Routes, Route } from 'react-router-dom'
+import { SiteLayout } from './layouts/SiteLayout'
+import { Home } from './pages/Home'
+import { CaseStudiesPage } from './pages/CaseStudiesPage'
+import { ExperiencePage } from './pages/ExperiencePage'
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen overflow-x-hidden">
-      <CustomCursor />
-      <WhatsAppFloat />
-      <SocialSidebar />
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Skills />
-        <Testimonials />
-        <Contact />
-        <Newsletter />
-      </main>
-      <Footer />
-    </div>
+    <Routes>
+      <Route element={<SiteLayout />}>
+        <Route index element={<Home />} />
+        <Route path="experience" element={<ExperiencePage />} />
+        <Route path="case-studies" element={<CaseStudiesPage />} />
+      </Route>
+    </Routes>
   )
 }
-
-export default App

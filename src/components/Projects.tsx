@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { site } from '../content'
 
 function TargetLinkIcon({ className }: { className?: string }) {
@@ -97,6 +98,14 @@ export function Projects() {
         </motion.h2>
         <p className="mx-auto mt-3 max-w-2xl text-center text-zinc-400">
           Case studies and builds — performance, accessibility, and craft in every detail.
+        </p>
+        <p className="mt-4 text-center">
+          <Link
+            to="/case-studies"
+            className="text-sm font-semibold text-accent underline-offset-4 transition hover:text-amber-400 hover:underline"
+          >
+            Read detailed case studies →
+          </Link>
         </p>
 
         <div className="relative mx-auto mt-14 h-[min(78vh,560px)] max-w-5xl">
